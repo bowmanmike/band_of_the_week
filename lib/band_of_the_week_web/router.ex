@@ -18,6 +18,9 @@ defmodule BandOfTheWeekWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/authorize", AuthorizationController, :authorize
+    get "/authenticate", AuthenticationController, :authenticate
   end
 
   # Other scopes may use custom stacks.
@@ -39,6 +42,8 @@ defmodule BandOfTheWeekWeb.Router do
       pipe_through :browser
 
       live_dashboard "/dashboard", metrics: BandOfTheWeekWeb.Telemetry
+      live "/spotify", BandOfTheWeekWeb.SpotifyLive
+      live "/spotex", BandOfTheWeekWeb.SpotExLive
     end
   end
 
