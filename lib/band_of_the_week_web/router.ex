@@ -43,7 +43,6 @@ defmodule BandOfTheWeekWeb.Router do
 
       live_dashboard "/dashboard", metrics: BandOfTheWeekWeb.Telemetry
       live "/spotify", BandOfTheWeekWeb.SpotifyLive
-      live "/spotex", BandOfTheWeekWeb.SpotExLive
     end
   end
 

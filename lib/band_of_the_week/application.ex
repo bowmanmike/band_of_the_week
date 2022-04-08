@@ -15,7 +15,8 @@ defmodule BandOfTheWeek.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: BandOfTheWeek.PubSub},
       # Start the Endpoint (http/https)
-      BandOfTheWeekWeb.Endpoint
+      BandOfTheWeekWeb.Endpoint,
+      {Finch, name: BandOfTheWeekFinch}
       # Start a worker by calling: BandOfTheWeek.Worker.start_link(arg)
       # {BandOfTheWeek.Worker, arg}
     ]

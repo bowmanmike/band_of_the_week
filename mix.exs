@@ -20,7 +20,7 @@ defmodule BandOfTheWeek.MixProject do
   def application do
     [
       mod: {BandOfTheWeek.Application, []},
-      extra_applications: [:logger, :runtime_tools, :os_mon, :ex_machina, :httpoison]
+      extra_applications: [:logger, :runtime_tools, :os_mon, :ex_machina]
     ]
   end
 
@@ -38,9 +38,9 @@ defmodule BandOfTheWeek.MixProject do
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
       {:ex_machina, "~> 2.7"},
       {:faker, "~> 0.17", only: :test},
+      {:finch, "~> 0.11"},
       {:floki, ">= 0.30.0", only: :test},
       {:gettext, "~> 0.18"},
-      {:httpoison, "~> 1.8"},
       {:jason, "~> 1.2"},
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},

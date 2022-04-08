@@ -62,7 +62,7 @@ config :band_of_the_week, :spotify,
   client_id: System.fetch_env!("SPOTIFY_CLIENT_ID"),
   client_secret: System.fetch_env!("SPOTIFY_CLIENT_SECRET"),
   callback_url: "http://localhost:4000/authenticate",
-  scopes: ["user-modify-playback-state"]
+  scopes: ["user-modify-playback-state", "user-read-email", "streaming"]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
