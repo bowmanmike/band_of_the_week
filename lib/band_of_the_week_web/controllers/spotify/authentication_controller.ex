@@ -8,8 +8,6 @@ defmodule BandOfTheWeekWeb.Spotify.AuthenticationController do
 
     body = Jason.decode!(response.body)
 
-    require IEx; IEx.pry()
-
     conn
     |> put_session(:spotify_access_token, body["access_token"])
     |> put_session(:spotify_refresh_token, body["refresh_token"])
