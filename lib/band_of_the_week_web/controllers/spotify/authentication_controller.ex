@@ -3,7 +3,7 @@ defmodule BandOfTheWeekWeb.Spotify.AuthenticationController do
 
   alias BandOfTheWeek.Spotify.AuthClient
 
-  def authenticate(conn, %{"code" => code} = params) do
+  def authenticate(conn, %{"code" => code}) do
     {:ok, response} = AuthClient.authenticate(code)
 
     body = Jason.decode!(response.body)
