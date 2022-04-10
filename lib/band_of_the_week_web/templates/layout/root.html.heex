@@ -15,7 +15,7 @@
       <nav class="flex justify-between items-center flex-1">
         <section>
           <ul class="flex space-x-2 items-center">
-            <li><%= link "Lists", to: "/lists" %></li>
+            <%# <li><%= link "Lists", to: Routes.lists_path(@conn, :index) %1></li> %>
             <li><%= link "Authorize", to: Routes.authorization_path(@conn, :authorize) %></li>
             <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
           </ul>

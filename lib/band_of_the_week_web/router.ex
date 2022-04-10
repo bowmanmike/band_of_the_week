@@ -30,7 +30,7 @@ defmodule BandOfTheWeekWeb.Router do
   scope "/lists", BandOfTheWeekWeb do
     pipe_through [:browser, :require_authenticated_user]
 
-    live "/", ListsLive
+    # live "/", ListsLive, :index
   end
 
   scope "/spotify", BandOfTheWeekWeb.Spotify do
