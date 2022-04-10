@@ -27,7 +27,7 @@ defmodule BandOfTheWeekWeb.Router do
       get "/authorize", AuthorizationController, :authorize
       get "/authenticate", AuthenticationController, :authenticate
 
-      live "/", BandOfTheWeekWeb.SpotifyLive
+      # live "/", SpotifyLive
     end
   end
 
