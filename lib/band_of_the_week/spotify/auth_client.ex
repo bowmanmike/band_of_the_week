@@ -83,5 +83,5 @@ defmodule BandOfTheWeek.Spotify.AuthClient do
   defp callback_url, do: config()[:callback_url]
   defp scopes, do: config()[:scopes] |> Enum.join(" ")
 
-  defp config, do: Application.get_env([:band_of_the_week, :spotify])
+  defp config, do: Application.get_env(:band_of_the_week, :spotify)
 end
