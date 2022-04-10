@@ -53,7 +53,14 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
-    secret_key_base: secret_key_base
+    secret_key_base: secret_key_base,
+    server: true
+
+  config :band_of_the_week, :spotify,
+    client_id: System.fetch_env!("SPOTIFY_CLIENT_ID"),
+    client_secret: System.fetch_env!("SPOTIFY_CLIENT_SECRET"),
+    callback_url: "http://localhost:4000/authenticate",
+    scopes: ["user-modify-playback-state", "user-read-email", "streaming"]
 
   # ## Using releases
   #

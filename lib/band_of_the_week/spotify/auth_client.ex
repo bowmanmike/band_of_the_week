@@ -1,5 +1,5 @@
 defmodule BandOfTheWeek.Spotify.AuthClient do
-  @config Application.get_env(:band_of_the_week, :spotify)
+  # @config Application.get_env(:band_of_the_week, :spotify)
   @auth_url "accounts.spotify.com"
 
   def authenticate(code) do
@@ -78,8 +78,10 @@ defmodule BandOfTheWeek.Spotify.AuthClient do
     ]
   end
 
-  defp client_id, do: @config[:client_id]
-  defp client_secret, do: @config[:client_secret]
-  defp callback_url, do: @config[:callback_url]
-  defp scopes, do: @config[:scopes] |> Enum.join(" ")
+  defp client_id, do: config()[:client_id]
+  defp client_secret, do: config()[:client_secret]
+  defp callback_url, do: config()[:callback_url]
+  defp scopes, do: config()[:scopes] |> Enum.join(" ")
+
+  defp config, do: Application.get_env([:band_of_the_week, :spotify])
 end

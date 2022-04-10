@@ -1,0 +1,1 @@
+call "%~dp0\band_of_the_week" eval BandOfTheWeek.Release.migrate
