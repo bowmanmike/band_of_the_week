@@ -25,13 +25,21 @@ defmodule BandOfTheWeekWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
 
-    scope "/spotify", Spotify do
-      get "/authorize", AuthorizationController, :authorize
-      get "/authenticate", AuthenticationController, :authenticate
+  scope "/lists", BandOfTheWeekWeb do
+    pipe_through [:browser, :require_authenticated_user]
 
-      # live "/", SpotifyLive
-    end
+    live "/", ListsLive
+  end
+
+  scope "/spotify", BandOfTheWeekWeb.Spotify do
+    pipe_through [:browser, :require_authenticated_user]
+
+    get "/authorize", AuthorizationController, :authorize
+    get "/authenticate", AuthenticationController, :authenticate
+
+    # live "/", SpotifyLive
   end
 
   # Other scopes may use custom stacks.
