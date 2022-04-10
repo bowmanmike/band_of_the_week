@@ -56,12 +56,6 @@ if config_env() == :prod do
     secret_key_base: secret_key_base,
     server: true
 
-  config :band_of_the_week, :spotify,
-    client_id: System.fetch_env!("SPOTIFY_CLIENT_ID"),
-    client_secret: System.fetch_env!("SPOTIFY_CLIENT_SECRET"),
-    callback_url: "http://localhost:4000/authenticate",
-    scopes: ["user-modify-playback-state", "user-read-email", "streaming"]
-
   # ## Using releases
   #
   # If you are doing OTP releases, you need to instruct Phoenix
@@ -90,3 +84,8 @@ if config_env() == :prod do
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
 end
+
+config :band_of_the_week, :spotify,
+  client_id: System.fetch_env!("SPOTIFY_CLIENT_ID"),
+  client_secret: System.fetch_env!("SPOTIFY_CLIENT_SECRET"),
+  scopes: ["user-modify-playback-state", "user-read-email", "streaming"]
