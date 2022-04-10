@@ -1,4 +1,4 @@
-defmodule BandOfTheWeekWeb.AuthorizationController do
+defmodule BandOfTheWeekWeb.Spotify.AuthorizationController do
   use BandOfTheWeekWeb, :controller
 
   alias BandOfTheWeek.Spotify.AuthClient

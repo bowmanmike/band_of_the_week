@@ -1,4 +1,4 @@
-defmodule BandOfTheWeekWeb.AuthenticationController do
+defmodule BandOfTheWeekWeb.Spotify.AuthenticationController do
   use BandOfTheWeekWeb, :controller
 
   alias BandOfTheWeek.Spotify.AuthClient
@@ -7,8 +7,8 @@ defmodule BandOfTheWeekWeb.AuthenticationController do
     {:ok, response} = AuthClient.authenticate(code)
 
     body = Jason.decode!(response.body)
-    |> IO.inspect()
 
+    require IEx; IEx.pry()
 
     conn
     |> put_session(:spotify_access_token, body["access_token"])

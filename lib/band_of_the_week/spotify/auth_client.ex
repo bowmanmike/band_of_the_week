@@ -18,13 +18,11 @@ defmodule BandOfTheWeek.Spotify.AuthClient do
       |> URI.encode_query(:www_form)
     )
     |> Finch.request(BandOfTheWeekFinch)
-    |> IO.inspect()
   end
 
   def play(token) do
     :put
     |> Finch.build("https://api.spotify.com/v1/me/player/play", headers(token), "{}")
-    |> IO.inspect()
     |> Finch.request(BandOfTheWeekFinch)
   end
 

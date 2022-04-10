@@ -19,8 +19,10 @@ defmodule BandOfTheWeekWeb.Router do
 
     get "/", PageController, :index
 
-    get "/authorize", AuthorizationController, :authorize
-    get "/authenticate", AuthenticationController, :authenticate
+    scope "/spotify", Spotify do
+      get "/authorize", AuthorizationController, :authorize
+      get "/authenticate", AuthenticationController, :authenticate
+    end
   end
 
   # Other scopes may use custom stacks.
