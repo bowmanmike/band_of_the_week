@@ -1,0 +1,41 @@
+<h1>Listing Bands</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.band_index_path(@socket, :index)}>
+    <.live_component
+      module={BandOfTheWeekWeb.BandLive.FormComponent}
+      id={@band.id || :new}
+      title={@page_title}
+      action={@live_action}
+      band={@band}
+      return_to={Routes.band_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Spotify url</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="bands">
+    <%= for band <- @bands do %>
+      <tr id={"band-#{band.id}"}>
+        <td><%= band.name %></td>
+        <td><%= band.spotify_url %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.band_show_path(@socket, :show, band) %></span>
+          <span><%= live_patch "Edit", to: Routes.band_index_path(@socket, :edit, band) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: band.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Band", to: Routes.band_index_path(@socket, :new) %></span>

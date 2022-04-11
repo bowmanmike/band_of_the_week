@@ -9,14 +9,14 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body class="max-w-7xl mx-auto bg-green-500">
+  <body class="max-w-7xl mx-auto">
     <header class="mt-4 flex flex-start items-center space-x-4">
       <h1 class="flex-0 font-bold text-gray-800 text-2xl"><%= link "Band Of The Week", to: Routes.page_path(@conn, :index) %></h1>
       <nav class="flex justify-between items-center flex-1">
         <section>
           <ul class="flex space-x-2 items-center">
-            <%# <li><%= link "Lists", to: Routes.lists_path(@conn, :index) %1></li> %>
-            <li><%= link "Authorize", to: Routes.authorization_path(@conn, :authorize) %></li>
+            <li><%= link "Bands", to: Routes.band_index_path(@conn, :index) %></li>
+            <%# <li><%= link "Authorize", to: Routes.authorization_path(@conn, :authorize) %1></li> %>
             <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
           </ul>
         </section>

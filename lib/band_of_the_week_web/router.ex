@@ -25,6 +25,13 @@ defmodule BandOfTheWeekWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "/bands", BandLive.Index, :index
+    live "/bands/new", BandLive.Index, :new
+    live "/bands/:id/edit", BandLive.Index, :edit
+
+    live "/bands/:id", BandLive.Show, :show
+    live "/bands/:id/show/edit", BandLive.Show, :edit
   end
 
   scope "/lists", BandOfTheWeekWeb do
