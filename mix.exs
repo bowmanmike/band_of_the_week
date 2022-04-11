@@ -20,13 +20,13 @@ defmodule BandOfTheWeek.MixProject do
   def application do
     [
       mod: {BandOfTheWeek.Application, []},
-      extra_applications: [:logger, :runtime_tools, :os_mon, :ex_machina]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_), do: ["lib"]
+  # defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib", "test/support"]
 
   # Specifies your project dependencies.
   #
@@ -38,7 +38,7 @@ defmodule BandOfTheWeek.MixProject do
       {:ecto_sql, "~> 3.6"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
       {:ex_machina, "~> 2.7"},
-      {:faker, "~> 0.17", only: :test},
+      {:faker, "~> 0.17", only: [:dev, :test]},
       {:finch, "~> 0.11"},
       {:floki, ">= 0.30.0", only: :test},
       {:gettext, "~> 0.18"},
