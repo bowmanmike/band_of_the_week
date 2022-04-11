@@ -6,17 +6,17 @@ defmodule BandOfTheWeek.BandsTest do
   describe "bands" do
     alias BandOfTheWeek.Bands.Band
 
-    import BandOfTheWeek.BandsFixtures
+    # import BandOfTheWeek.BandsFixtures
 
     @invalid_attrs %{name: nil, spotify_url: nil}
 
     test "list_bands/0 returns all bands" do
-      band = band_fixture()
+      band = insert(:band)
       assert Bands.list_bands() == [band]
     end
 
     test "get_band!/1 returns the band with given id" do
-      band = band_fixture()
+      band = insert(:band)
       assert Bands.get_band!(band.id) == band
     end
 
@@ -33,7 +33,7 @@ defmodule BandOfTheWeek.BandsTest do
     end
 
     test "update_band/2 with valid data updates the band" do
-      band = band_fixture()
+      band = insert(:band)
       update_attrs = %{name: "some updated name", spotify_url: "some updated spotify_url"}
 
       assert {:ok, %Band{} = band} = Bands.update_band(band, update_attrs)
@@ -42,19 +42,19 @@ defmodule BandOfTheWeek.BandsTest do
     end
 
     test "update_band/2 with invalid data returns error changeset" do
-      band = band_fixture()
+      band = insert(:band)
       assert {:error, %Ecto.Changeset{}} = Bands.update_band(band, @invalid_attrs)
       assert band == Bands.get_band!(band.id)
     end
 
     test "delete_band/1 deletes the band" do
-      band = band_fixture()
+      band = insert(:band)
       assert {:ok, %Band{}} = Bands.delete_band(band)
       assert_raise Ecto.NoResultsError, fn -> Bands.get_band!(band.id) end
     end
 
     test "change_band/1 returns a band changeset" do
-      band = band_fixture()
+      band = insert(:band)
       assert %Ecto.Changeset{} = Bands.change_band(band)
     end
   end

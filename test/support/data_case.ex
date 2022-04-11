@@ -24,6 +24,7 @@ defmodule BandOfTheWeek.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import BandOfTheWeek.DataCase
+      import BandOfTheWeek.Factory
     end
   end
 
