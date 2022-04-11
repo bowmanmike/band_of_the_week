@@ -7,18 +7,18 @@
     id="band-form"
     phx-target={@myself}
     phx-change="validate"
-    phx-submit="save">
-  
-    <%= label f, :name %>
-    <%= text_input f, :name %>
-    <%= error_tag f, :name %>
-  
-    <%= label f, :spotify_url %>
-    <%= text_input f, :spotify_url %>
-    <%= error_tag f, :spotify_url %>
-  
+    phx-submit="save"
+  >
+    <%= label(f, :name) %>
+    <%= text_input(f, :name) %>
+    <%= error_tag(f, :name) %>
+
+    <%= label(f, :spotify_url) %>
+    <%= text_input(f, :spotify_url) %>
+    <%= error_tag(f, :spotify_url) %>
+
     <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
+      <%= submit("Save", phx_disable_with: "Saving...") %>
     </div>
   </.form>
 </div>

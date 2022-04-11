@@ -14,7 +14,6 @@
 <% end %>
 
 <ul>
-
   <li>
     <strong>Name:</strong>
     <%= @band.name %>
@@ -24,8 +23,8 @@
     <strong>Spotify url:</strong>
     <%= @band.spotify_url %>
   </li>
-
 </ul>
 
-<span><%= live_patch "Edit", to: Routes.band_show_path(@socket, :edit, @band), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.band_index_path(@socket, :index) %></span>
+<span>
+  <%= live_patch("Edit", to: Routes.band_show_path(@socket, :edit, @band), class: "button") %>
+</span> | <span><%= live_redirect("Back", to: Routes.band_index_path(@socket, :index)) %></span>

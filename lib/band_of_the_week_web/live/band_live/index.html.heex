@@ -29,13 +29,22 @@
         <td><%= band.spotify_url %></td>
 
         <td>
-          <span><%= live_redirect "Show", to: Routes.band_show_path(@socket, :show, band) %></span>
-          <span><%= live_patch "Edit", to: Routes.band_index_path(@socket, :edit, band) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: band.id, data: [confirm: "Are you sure?"] %></span>
+          <span>
+            <%= live_redirect("Show", to: Routes.band_show_path(@socket, :show, band)) %>
+          </span>
+          <span><%= live_patch("Edit", to: Routes.band_index_path(@socket, :edit, band)) %></span>
+          <span>
+            <%= link("Delete",
+              to: "#",
+              phx_click: "delete",
+              phx_value_id: band.id,
+              data: [confirm: "Are you sure?"]
+            ) %>
+          </span>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<span><%= live_patch "New Band", to: Routes.band_index_path(@socket, :new) %></span>
+<span><%= live_patch("New Band", to: Routes.band_index_path(@socket, :new)) %></span>

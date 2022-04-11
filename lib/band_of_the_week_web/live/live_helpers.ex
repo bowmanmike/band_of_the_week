@@ -27,10 +27,14 @@ defmodule BandOfTheWeekWeb.LiveHelpers do
     assigns = assign_new(assigns, :return_to, fn -> nil end)
 
     ~H"""
-    <div id="modal" class="phx-modal fade-in" phx-remove={hide_modal()}>
+    <div
+      id="modal"
+      class="fixed z-10 left-0 top-0 w-full h-full overflow-auto  bg-black/40 !opacity-100 fade-in"
+      phx-remove={hide_modal()}
+    >
       <div
         id="modal-content"
-        class="phx-modal-content fade-in-scale"
+        class="p-5 w-4/5 mx-auto my-12 border border-gray-300 bg-white fade-in-scale"
         phx-click-away={JS.dispatch("click", to: "#close")}
         phx-window-keydown={JS.dispatch("click", to: "#close")}
         phx-key="escape"
@@ -39,7 +43,8 @@ defmodule BandOfTheWeekWeb.LiveHelpers do
           <%= live_patch("✖",
             to: @return_to,
             id: "close",
-            class: "phx-modal-close",
+            class:
+              "text-gray-200 p-5 text-2xl font-bold hover::text-black hover:decoration-none hover:cursor-pointer focus:text-black focus:decoration-none focus:cursor-pointer",
             phx_click: hide_modal()
           ) %>
         <% else %>
