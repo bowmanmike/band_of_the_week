@@ -34,6 +34,7 @@ defmodule BandOfTheWeekWeb.UserAuth do
     |> put_session(:live_socket_id, "users_sessions:#{Base.url_encode64(token)}")
     |> maybe_write_remember_me_cookie(token, params)
     |> redirect(to: user_return_to || signed_in_path(conn))
+
     # |> BandOfTheWeekWeb.LiveView.live_render(BandOfTheWeekWeb.ListsLive, session: %{user_token: token})
   end
 
