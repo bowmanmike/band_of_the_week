@@ -23,6 +23,7 @@ defmodule BandOfTheWeekWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import BandOfTheWeekWeb.ConnCase
+      import BandOfTheWeek.Factory
 
       alias BandOfTheWeekWeb.Router.Helpers, as: Routes
 

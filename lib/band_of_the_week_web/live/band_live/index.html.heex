@@ -13,7 +13,7 @@
 
 <section class="flex justify-evenly space-x-4 flex-wrap">
   <%= for band <- @bands do %>
-    <section class="border border-gray-500 rounded-md p-6">
+    <section id={"band-#{band.id}"} class="border border-gray-500 rounded-md p-6">
       <h3><%= band.name %></h3>
       <p><%= link("Spotify", to: band.spotify_url, class: "underline") %></p>
       <ul>

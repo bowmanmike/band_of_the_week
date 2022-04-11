@@ -2,15 +2,23 @@ defmodule BandOfTheWeekWeb.BandLiveTest do
   use BandOfTheWeekWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import BandOfTheWeek.BandsFixtures
 
   @create_attrs %{name: "some name", spotify_url: "some spotify_url"}
   @update_attrs %{name: "some updated name", spotify_url: "some updated spotify_url"}
   @invalid_attrs %{name: nil, spotify_url: nil}
 
   defp create_band(_) do
-    band = band_fixture()
+    band = insert(:band)
     %{band: band}
+  end
+
+  setup %{conn: conn} do
+    user = insert(:user)
+
+    %{
+      user: user,
+      conn: log_in_user(conn, user)
+    }
   end
 
   describe "Index" do
