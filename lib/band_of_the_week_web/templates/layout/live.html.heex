@@ -1,5 +1,5 @@
 <main>
-  <%= if @flash[:info] do %>
+  <%= if @flash["info"] do %>
     <div class="bg-green-50 border-l-4 border-green-400 p-4">
       <div class="flex">
         <div class="flex-shrink-0">
@@ -24,13 +24,13 @@
             phx-click="lv:clear-flash"
             phx-value-key="info"
           >
-            <%= @flash[:info] %>
+            <%= @flash["info"] %>
           </p>
         </div>
       </div>
     </div>
   <% end %>
-  <%= if @flash[:warning] do %>
+  <%= if @flash["warning"] do %>
     <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
       <div class="flex">
         <div class="flex-shrink-0">
@@ -56,13 +56,13 @@
             phx-click="lv:clear-flash"
             phx-value-key="warning"
           >
-            <%= @flash[:warning] %>
+            <%= @flash["warning"] %>
           </p>
         </div>
       </div>
     </div>
   <% end %>
-  <%= if @flash[:error] do %>
+  <%= if @flash["error"] do %>
     <div class="bg-red-50 border-l-4 border-red-400 p-4">
       <div class="flex">
         <div class="flex-shrink-0">
@@ -88,7 +88,7 @@
             phx-click="lv:clear-flash"
             phx-value-key="error"
           >
-            <%= @flash[:error] %>
+            <%= @flash["error"] %>
           </p>
         </div>
       </div>

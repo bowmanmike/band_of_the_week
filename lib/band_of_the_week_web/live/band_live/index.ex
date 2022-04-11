@@ -37,7 +37,12 @@ defmodule BandOfTheWeekWeb.BandLive.Index do
     band = Bands.get_band!(id)
     {:ok, _} = Bands.delete_band(band)
 
-    {:noreply, assign(socket, :bands, list_bands())}
+    socket =
+      socket
+      |> put_flash(:info, "Successfully deleted #{band.name}")
+      |> assign(:bands, list_bands())
+
+    {:noreply, socket}
   end
 
   defp list_bands do
