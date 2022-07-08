@@ -11,27 +11,31 @@
   </.modal>
 <% end %>
 
-<section class="flex justify-evenly space-x-4 flex-wrap">
-  <%= for band <- @bands do %>
-    <section id={"band-#{band.id}"} class="border border-gray-500 rounded-md p-6">
-      <h3><%= band.name %></h3>
-      <p><%= link("Spotify", to: (band.spotify_url || "#"), class: "underline") %></p>
-      <ul>
-        <li><%= live_redirect("Show", to: Routes.band_show_path(@socket, :show, band)) %></li>
-        <li><%= live_patch("Edit", to: Routes.band_index_path(@socket, :edit, band)) %></li>
-        <li>
-          <%= link("Delete",
-            to: "#",
-            phx_click: "delete",
-            phx_value_id: band.id,
-            data: [confirm: "Are you sure?"]
-          ) %>
-        </li>
-      </ul>
-    </section>
-  <% end %>
-</section>
-
-<span class="inline-block py-2 px-4 bg-blue-300 rounded-md shadow-md">
-  <%= live_patch("New Band", to: Routes.band_index_path(@socket, :new)) %>
-</span>
+<div class="bg-green-200 p-2">
+  <section class="flex justify-evenly flex-wrap my-4 gap-4">
+    <%= for band <- @bands do %>
+      <section id={"band-#{band.id}"} class="basis-1/3 bg-red-200 border-r-8 border-b-8 border-red-300 shadow-lg p-2">
+          <h3><%= band.name %></h3>
+          <p><%= link("Spotify", to: (band.spotify_url || "#"), class: "underline") %></p>
+          <ul>
+            <li><%= live_redirect("Show", to: Routes.band_show_path(@socket, :show, band)) %></li>
+            <li><%= live_patch("Edit", to: Routes.band_index_path(@socket, :edit, band)) %></li>
+            <li>
+              <%= link("Delete",
+                to: "#",
+                phx_click: "delete",
+                phx_value_id: band.id,
+                data: [confirm: "Are you sure?"]
+              ) %>
+            </li>
+          </ul>
+      </section>
+    <% end %>
+  </section>
+  
+  <span>
+    <%= live_patch(to: Routes.band_index_path(@socket, :new), class: "inline-block py-2 px-4 bg-blue-300 rounded-md shadow-md") do %>
+    New Band
+    <% end %>
+  </span>
+</div>
